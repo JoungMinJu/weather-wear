@@ -15,7 +15,6 @@
                 <div class="main-menu mobile-menu">
                     <ul>
                         <li><a href="{% url 'mainPage:today' %}">오늘의 옷 추천</a></li>
-                        <li><a href="#">일주일 옷 추천</a></li>
                         <li><a href="{% url 'community:show' %}">community</a></li>
                         {% if user.is_authenticated %}
                         {% if user.is_superuser %}

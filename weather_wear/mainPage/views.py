@@ -1,6 +1,15 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
+from requests.api import options
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import urllib.request
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC
+options = webdriver.ChromeOptions()
+options.add_experimental_option("excludeSwitches",["enable-logging"])
 
 def today(request):
     # 지역은 서울로 고정
@@ -34,8 +43,6 @@ def today(request):
     wind_float=float(result['wind'].rstrip('m/s'))
     
     return render(request, 'mainPage/today.html',{'weather': result , 'temp_int' : temp_int , 'precipitation_int': precipitation_int , 'humidity_int': humidity_int , 'wind_float': wind_float})
- 
-
 
 def mainpage(request):
      # 지역은 서울로 고정
